@@ -2,12 +2,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let login = localStorage.getItem('login');
     let firstName = localStorage.getItem('firstname');
     if (login != null) {
-
         document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${firstName}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
     }
-
-
-})
+)
 
 function showReg(state) {
     document.getElementById('window').style.display = state;
