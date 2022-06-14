@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (login != null) {
         document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${firstName}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
     }
-)
+
+})
 
 function showReg(state) {
     document.getElementById('window').style.display = state;
@@ -23,7 +24,6 @@ function showIn(state) {
         document.querySelector('#pass__in').value = password;
     }
 }
-
 
 function pushReg() {
     let firstName = document.querySelector('#firstname').value;
@@ -69,12 +69,10 @@ function getReg() {
     document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${localStorage.getItem('firstname')}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
 
     localStorage.setItem('login', true);
-
 }
 
 function outUser() {
     document.getElementById('wrapper__button').innerHTML = `<button id="buttonReg" onclick="showReg('block')" class="regButton">Регистрация</button>
     <button id="buttonIn" onclick="showIn('block')" class="regButton">Войти</button>`
     localStorage.removeItem('login');
-
 }
