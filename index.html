@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="wrapper__button" class="wrapper__button">
+        <button id="buttonReg" onclick="showReg('block')" class="regButton">Регистрация</button>
+        <button id="buttonIn" onclick="showIn('block')" class="regButton">Войти</button>
+    </div>
+
+    <div onclick="showReg('none')" id="gray"></div>
+    <div onclick="showIn('none')" id="gray2"></div>
+
+    <div id="window">
+        <img onclick="showReg('none')" src="./img/close.png" alt="" class="close">
+        <div class="form">
+            <h2>Регистрация</h2>
+            <form id="regForm" action="index.html" name="f1">
+                <input id="firstname" type="text" placeholder="Имя" name="firstname" class="input" >
+                <input id="lastname" type="text" placeholder="Фамилия" name="lastname" class="input" >
+                <input id="email" type="email" placeholder="E-mail" name="email" class="input" > 
+                <input id="pass1" type="password" placeholder="Пароль" name="pass" class="input" >
+                <input id="pass2" type="password" placeholder="Повторите пароль" name="pass" class="input">
+                <button onclick="pushReg()" class="btnReg">Зарегистрироваться</button>
+                <div class="error"></div>
+                <div>Нажимая «Регистрация», вы
+                    подтверждаете,
+                    что
+                    прочитали и согласны с нашими Условиями Пользования и Политикой Конфиденциальности.</div>
+            </form>
+        </div>
+    </div>
+
+    <div id="windowIn">
+        <img onclick="showIn('none')" src="./img/close.png" alt="" class="close">
+        <div class="form">
+            <h2>Добро пожаловать</h2>
+            <form id="inForm" action="index.html" name="f1">
+                <input id="email__in" type="email" placeholder="E-mail" name="email" class="input">
+                <input id="pass__in" type="password" placeholder="Пароль" name="pass" class="input">
+                <button class="btnReg" onclick="getReg()">Войти</button>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

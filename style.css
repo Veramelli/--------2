@@ -1,0 +1,91 @@
+.regButton {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 6px 24px;
+    cursor: pointer;
+}
+
+.regButton:hover {
+    background: #ccc;
+}
+
+.form {
+    width: 275px;
+    margin: -15px auto 20px auto;
+    text-align: center;
+}
+
+.input,
+.btnReg {
+    width: 260px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.close {
+    position: absolute;
+    margin: 10px 0 0 320px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 2px;
+    background: #ccc;
+}
+
+.close:hover {
+    background: #fff;
+}
+
+body {
+    background: rgb(202, 179, 179);
+}
+
+.error {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.wrapper__button {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: baseline;
+    font-size: 26px;
+}
+
+#window,
+#windowIn {
+    width: 350px;
+    height: 430px;
+    margin: 40px auto;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    z-index: 150;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#windowIn {
+    height: 230px;
+}
+
+#gray,
+#gray2 {
+    background-color: rgb(1, 1, 1, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 100;
+    overflow: auto;
+}
+
