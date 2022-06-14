@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (login != null) {
         document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${firstName}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
     }
-
 })
 
 function showReg(state) {
@@ -46,7 +45,6 @@ function pushReg() {
     if (localStorage.getItem('pass') == null) {
         if (password === password2) {
             localStorage.setItem('pass', password);
-
         } else {
             document.querySelector('.error').innerHTML = 'Пароль не совпадает!'
         }
