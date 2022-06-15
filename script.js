@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 })
 
-/* let errors = [];
- */
+let errors = [];
+
 function showReg(state) {
-    /*     errors = [];
-     */
+    errors = [];
+
     document.getElementById('window').style.display = state;
     document.getElementById('gray').style.display = state;
 }
@@ -28,7 +28,7 @@ function showIn(state) {
     }
 }
 
-/* function checkValidity(input) {
+function checkValidity(input) {
     let validity = input.validity;
     console.log(validity.valueMissing);
 
@@ -38,10 +38,12 @@ function showIn(state) {
     if (validity.patternMismatch) {
         errors.push('Не верный формат заполнения e-mail');
     }
-} */
+    return errors;
+}
 
-/* function checkPassword() {
+function checkPassword() {
     let password = document.querySelector('#pass1').value;
+    let password2 = document.querySelector('#pass2').value;
     console.log(password);
     if (password != null) {
         if (password.length < 4) {
@@ -59,28 +61,34 @@ function showIn(state) {
         if (password.search(/[0123456789]/) === -1) {
             errors.push('Пароль должен содержать минимум одну цифру');
         }
+        if (password != password2) {
+            errors.push('Пароль не совпадает!');
+        }
     }
-} */
+    return errors;
+}
 
 function pushReg() {
-    /*  console.log(errors);
-     let inputs = document.querySelectorAll(".inputReg");
-     console.log(inputs);
-     for (let input of inputs) {
-         checkValidity(input);
-     }
+    let inputs = document.querySelectorAll(".inputReg");
+    console.log(inputs);
+    for (let input of inputs) {
+        checkValidity(input);
+    }
 
-     checkPassword();
+    checkPassword();
 
-     document.getElementById("error").innerHTML = errors.join('.<br>'); */
+    if (errors == false) {
+        saveData();
+    } else {
+        document.getElementById("error").innerHTML = errors.join('.<br>');
+        errors = [];
+    }
 
-    saveData();
-
+    document.querySelector('form').addEventListener('submit', (e) => e.preventDefault())
 
 }
 
 function saveData() {
-
     let firstName = document.querySelector('#firstname').value;
     let lastName = document.querySelector('#lastname').value;
     let email = document.querySelector('#email').value;
@@ -100,26 +108,24 @@ function saveData() {
         localStorage.setItem('email', email);
     }
     if (localStorage.getItem('pass') == null) {
-        if (password === password2) {
-            localStorage.setItem('pass', password2);
-        } else {
-            document.querySelector('.error').textContent = 'Пароль не совпадает!';
-        }
+
+        localStorage.setItem('pass', password2);
     }
 
-    localStorage.setItem('login', true);
 
-    document.getElementById('window').style.display = "none";
-    document.getElementById('gray').style.display = "none";
+localStorage.setItem('login', true);
 
-    document.querySelector('form').addEventListener('submit', (e) => e.preventDefault())
+document.getElementById('window').style.display = "none";
+document.getElementById('gray').style.display = "none";
 
-    document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${firstName}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
+document.querySelector('form').addEventListener('submit', (e) => e.preventDefault())
+
+document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${firstName}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
 }
 
 function getReg() {
-        document.querySelector('#inForm').addEventListener('submit', (e) => e.preventDefault())
-    
+    document.querySelector('#inForm').addEventListener('submit', (e) => e.preventDefault())
+
     document.getElementById('windowIn').style.display = "none";
     document.getElementById('gray2').style.display = "none";
     document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${localStorage.getItem('firstname')}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
