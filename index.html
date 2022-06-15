@@ -22,14 +22,14 @@
         <img onclick="showReg('none')" src="./img/close.png" alt="" class="close">
         <div class="form">
             <h2>Регистрация</h2>
-            <form id="regForm" action="index.html" name="f1">
-                <input id="firstname" type="text" placeholder="Имя" name="firstname" class="input" >
-                <input id="lastname" type="text" placeholder="Фамилия" name="lastname" class="input" >
-                <input id="email" type="email" placeholder="E-mail" name="email" class="input" > 
-                <input id="pass1" type="password" placeholder="Пароль" name="pass" class="input" >
-                <input id="pass2" type="password" placeholder="Повторите пароль" name="pass" class="input">
+            <form id="regForm" action="index.html" name="f1" novalidate>
+                <input id="firstname" type="text" placeholder="Имя" name="firstname" class="inputReg" required>
+                <input id="lastname" type="text" placeholder="Фамилия" name="lastname" class="inputReg" required>
+                <input id="email" type="email" placeholder="E-mail" name="email" class="inputReg" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"> 
+                <input id="pass1" type="password" placeholder="Пароль" name="pass" class="inputReg" required>
+                <input id="pass2" type="password" placeholder="Повторите пароль" name="pass" class="inputReg" required>
                 <button onclick="pushReg()" class="btnReg">Зарегистрироваться</button>
-                <div class="error"></div>
+                <div id="error" class="error"></div>
                 <div>Нажимая «Регистрация», вы
                     подтверждаете,
                     что

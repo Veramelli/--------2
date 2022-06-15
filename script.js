@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 })
 
+/* let errors = [];
+ */
 function showReg(state) {
+    /*     errors = [];
+     */
     document.getElementById('window').style.display = state;
     document.getElementById('gray').style.display = state;
 }
@@ -24,12 +28,65 @@ function showIn(state) {
     }
 }
 
+/* function checkValidity(input) {
+    let validity = input.validity;
+    console.log(validity.valueMissing);
+
+    if (validity.valueMissing) {
+        errors.push('Поле ' + input.placeholder + ' не заполнено');
+    }
+    if (validity.patternMismatch) {
+        errors.push('Не верный формат заполнения e-mail');
+    }
+} */
+
+/* function checkPassword() {
+    let password = document.querySelector('#pass1').value;
+    console.log(password);
+    if (password != null) {
+        if (password.length < 4) {
+            errors.push('Минимальное значение пароля не может быть меньше, чем 4');
+        }
+        if (password.length > 10) {
+            errors.push('Максимальное значение пароля не может быть больше, чем 10');
+        }
+        if (password.search(/[a-z]/) === -1) {
+            errors.push('Пароль должен содержать минимум одну прописную букву');
+        }
+        if (password.search(/[A-Z]/) === -1) {
+            errors.push('Пароль должен содержать минимум одну заглавную букву');
+        }
+        if (password.search(/[0123456789]/) === -1) {
+            errors.push('Пароль должен содержать минимум одну цифру');
+        }
+    }
+} */
+
 function pushReg() {
+    /*  console.log(errors);
+     let inputs = document.querySelectorAll(".inputReg");
+     console.log(inputs);
+     for (let input of inputs) {
+         checkValidity(input);
+     }
+
+     checkPassword();
+
+     document.getElementById("error").innerHTML = errors.join('.<br>'); */
+
+    saveData();
+
+
+}
+
+function saveData() {
+
     let firstName = document.querySelector('#firstname').value;
     let lastName = document.querySelector('#lastname').value;
     let email = document.querySelector('#email').value;
     let password = document.querySelector('#pass1').value;
     let password2 = document.querySelector('#pass2').value;
+    console.log(password, password2);
     document.querySelector('.error').innerHTML = '';
 
     if (localStorage.getItem('firstName') == null) {
@@ -44,9 +101,9 @@ function pushReg() {
     }
     if (localStorage.getItem('pass') == null) {
         if (password === password2) {
-            localStorage.setItem('pass', password);
+            localStorage.setItem('pass', password2);
         } else {
-            document.querySelector('.error').innerHTML = 'Пароль не совпадает!'
+            document.querySelector('.error').textContent = 'Пароль не совпадает!';
         }
     }
 
@@ -61,7 +118,8 @@ function pushReg() {
 }
 
 function getReg() {
-    document.querySelector('#inForm').addEventListener('submit', (e) => e.preventDefault())
+        document.querySelector('#inForm').addEventListener('submit', (e) => e.preventDefault())
+    
     document.getElementById('windowIn').style.display = "none";
     document.getElementById('gray2').style.display = "none";
     document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${localStorage.getItem('firstname')}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
@@ -74,3 +132,4 @@ function outUser() {
     <button id="buttonIn" onclick="showIn('block')" class="regButton">Войти</button>`
     localStorage.removeItem('login');
 }
+/* document.querySelector('form').addEventListener('submit', (e) => e.preventDefault()); */

@@ -17,7 +17,7 @@
 }
 
 .input,
-.btnReg {
+.btnReg, .inputReg {
     width: 260px;
     padding: 5px;
     margin-bottom: 10px;
@@ -58,7 +58,7 @@ body {
 #window,
 #windowIn {
     width: 350px;
-    height: 430px;
+    height: fit-content;
     margin: 40px auto;
     background: #fff;
     border: 1px solid #fff;
