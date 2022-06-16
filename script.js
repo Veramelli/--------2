@@ -10,8 +10,7 @@ let errors = [];
 
 function showReg(state) {
     errors = [];
-
-    document.getElementById('window').style.display = state;
+    document.getElementById('windowReg').style.display = state;
     document.getElementById('gray').style.display = state;
 }
 
@@ -83,7 +82,6 @@ function pushReg() {
         document.getElementById("error").innerHTML = errors.join('.<br>');
         errors = [];
     }
-
     document.querySelector('form').addEventListener('submit', (e) => e.preventDefault())
 
 }
@@ -100,7 +98,6 @@ function saveData() {
     if (localStorage.getItem('firstName') == null) {
         localStorage.setItem('firstname', firstName);
     }
-
     if (localStorage.getItem('lastname') == null) {
         localStorage.setItem('lastname', lastName);
     }
@@ -108,28 +105,21 @@ function saveData() {
         localStorage.setItem('email', email);
     }
     if (localStorage.getItem('pass') == null) {
-
         localStorage.setItem('pass', password2);
     }
 
-
 localStorage.setItem('login', true);
-
-document.getElementById('window').style.display = "none";
+document.getElementById('windowReg').style.display = "none";
 document.getElementById('gray').style.display = "none";
-
 document.querySelector('form').addEventListener('submit', (e) => e.preventDefault())
-
 document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${firstName}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
 }
 
-function getReg() {
+function getIn() {
     document.querySelector('#inForm').addEventListener('submit', (e) => e.preventDefault())
-
     document.getElementById('windowIn').style.display = "none";
     document.getElementById('gray2').style.display = "none";
     document.getElementById('wrapper__button').innerHTML = `<div>Привет, ${localStorage.getItem('firstname')}!</div><button id="buttonOut" onclick="outUser()" class="regButton">Выйти</button>`
-
     localStorage.setItem('login', true);
 }
 
@@ -138,4 +128,3 @@ function outUser() {
     <button id="buttonIn" onclick="showIn('block')" class="regButton">Войти</button>`
     localStorage.removeItem('login');
 }
-/* document.querySelector('form').addEventListener('submit', (e) => e.preventDefault()); */

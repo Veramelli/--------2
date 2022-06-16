@@ -1,49 +1,5 @@
-.regButton {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 6px 24px;
-    cursor: pointer;
-}
-
-.regButton:hover {
-    background: #ccc;
-}
-
-.form {
-    width: 275px;
-    margin: -15px auto 20px auto;
-    text-align: center;
-}
-
-.input,
-.btnReg, .inputReg {
-    width: 260px;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.close {
-    position: absolute;
-    margin: 10px 0 0 320px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    padding: 2px;
-    background: #ccc;
-}
-
-.close:hover {
-    background: #fff;
-}
-
 body {
-    background: rgb(202, 179, 179);
-}
-
-.error {
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 15px;
+    background: rgb(250, 219, 219);
 }
 
 .wrapper__button {
@@ -55,25 +11,16 @@ body {
     font-size: 26px;
 }
 
-#window,
-#windowIn {
-    width: 350px;
-    height: fit-content;
-    margin: 40px auto;
+.regButton {
     background: #fff;
-    border: 1px solid #fff;
-    border-radius: 15px;
-    z-index: 150;
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 6px 24px;
+    cursor: pointer;
 }
 
-#windowIn {
-    height: 230px;
+.regButton:hover {
+    background: rgb(238, 159, 159);
 }
 
 #gray,
@@ -89,3 +36,58 @@ body {
     overflow: auto;
 }
 
+#windowReg,
+#windowIn {
+    width: 350px;
+    height: fit-content;
+    margin: 40px auto;
+    background: rgb(238, 159, 159);
+    border: 1px solid rgb(180, 97, 97);
+    border-radius: 15px;
+    z-index: 150;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.close {
+    position: absolute;
+    margin: 10px 0 0 320px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 2px;
+    background: #fff;
+}
+
+.close:hover {
+    background: #ccc;
+}
+
+.popup__form {
+    width: 275px;
+    margin: -15px auto 20px auto;
+    text-align: center;
+}
+
+.input,
+.btnForm,
+.inputReg {
+    width: 260px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid rgb(180, 97, 97);
+}
+
+.btnForm:hover {
+    background: rgb(180, 97, 97);
+}
+
+.error {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
